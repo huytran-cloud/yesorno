@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+            background-color: #ffd0cf;
+        }
+
+        body>* {
+            position: absolute;
+        }
+
+        #button {
+            margin: 0;
+        }
+
+        h1 {
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            -o-hyphens: auto;
+            hyphens: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="margin-left: ;">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-warning">Cancel</button>
+        </div>
+    </div>
+
+    <button onclick="myFunction()" class="btn btn-success btn-lg"
+        style="margin: 0; position: absolute; top: 50%; left: 45%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">Yes</button>
+    <button id='button' class="btn btn-danger btn-lg"
+        style="margin: 0; position: absolute; top: 50%; left: 55%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">No</button>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+<script>
+    addEventListener('load', () => { // load
+        const but = document.getElementById('button'), bS = but.style, bod = document.body;
+        but.onclick = function () {
+            let m = bod.getBoundingClientRect(), mw = m.width, mh = m.height, b = this.getBoundingClientRect(), x = Math.floor(Math.random() * mw);
+            let y = Math.floor(Math.random() * mh), w = b.width, h = b.height, xw = mw - w, yh = mh - h;
+            bS.top = (y > yh ? yh : y) + 'px';
+            bS.left = (x > xw ? xw : x) + 'px';
+        }
+    });// end load
+
+    function myFunction() {
+        alert("Yes No Question")
+    }
+
+</script>
+
+</html>
